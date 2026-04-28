@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -477,18 +478,17 @@ body::before{
   <!-- SUCESSO -->
   <div id="tela-sucesso">
     <div class="sucesso-orn"><span>&#10022; &nbsp; &#10022;</span></div>
+    <div class="sucesso-title" id="sucesso-title">Obrigada!</div>
+    <div class="sucesso-studio">Cadastro recebido com sucesso</div>
+    <p class="sucesso-msg" id="sucesso-msg">
+      Obrigada pelo seu cadastro e por fazer parte da familia Angela Moraes. Ja estou ansiosa para cuidar de voce!
+    </p>
     <div class="sucesso-icon-wrap">
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
         <circle cx="18" cy="18" r="16" stroke="#A8842A" stroke-width="1.5"/>
         <path d="M10 19l5.5 5.5L26 13" stroke="#A8842A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
-    <div class="sucesso-title" id="sucesso-title">Obrigada!</div>
-    <div class="sucesso-studio">Cadastro recebido com sucesso</div>
-    <p class="sucesso-msg" id="sucesso-msg">
-      Estou ansiosa para te receber e criar algo lindo juntas.
-      Voce ja faz parte da minha familia especial de clientes.
-    </p>
     <div style="display:flex;justify-content:center;">
       <a href="https://g.page/r/CXLA_NjwG8WzEAE/review" target="_blank" class="btn-google">
         <span class="btn-google-main">Aproveite para me avaliar no Google</span>
@@ -546,9 +546,7 @@ const FIREBASE_CFG = {
 
 // Os 3 UIDs possíveis — testa em ordem até encontrar o certo
 const UIDS_POSSIVEIS = [
-  'TCNw56rDgvZWHc52zVlJcuM', // angela.anaju@gmail — ultimo login recente
-  'XUd95i3V92QijDFEHyDQrkqn', // angela.anaju1234
-  '0XdIqs7JFKMn9OT3aOOHOkY'  // angelamoraesstudio
+  '0XdIqs7JFKMn9OT3a0OHOkYeMkA2' // angelamoraesstudio — UID confirmado
 ];
 
 let db = null;

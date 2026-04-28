@@ -331,6 +331,24 @@ body::before{
   color: rgba(168,132,42,.35); white-space: nowrap;
 }
 
+
+/* Fix iOS autofill azul */
+.campo-card input:-webkit-autofill,
+.campo-card input:-webkit-autofill:hover,
+.campo-card input:-webkit-autofill:focus{
+  -webkit-box-shadow:0 0 0 60px #F5F0E8 inset !important;
+  -webkit-text-fill-color:#1a1208 !important;
+  caret-color:#7A6018 !important;
+}
+.campo-card input:focus,.campo-card select:focus{
+  background:#F5F0E8 !important;
+  color:#1a1208 !important;
+  -webkit-text-fill-color:#1a1208 !important;
+}
+.campo-card input,.campo-card select{
+  -webkit-text-fill-color:#1a1208;
+  caret-color:#7A6018;
+}
 </style>
 </head>
 <body>
@@ -566,19 +584,19 @@ window.enviarCadastro = async function(){
   const id   = Date.now().toString(36) + Math.random().toString(36).slice(2,6);
   const dado = { id, nome, whats, ig, aniv, bairro, cidade, como, foto:'', obs:'', origemCadastro:'link-whatsapp', ts: Date.now() };
 
-  // Tenta salvar em cada UID até um funcionar
+  // Tenta salvar direto nos clientes e também em coleção pública
   let salvo = false;
+
   for(const uid of UIDS_POSSIVEIS){
     try{
-      await db.collection(`usuarios/${uid}/clientes`).doc(id).set(dado);
+      await db.collection('usuarios').doc(uid).collection('clientes').doc(id).set(dado);
       salvo = true;
       break;
     } catch(e){ continue; }
   }
 
-  // Se nenhum UID funcionou, salva em coleção pública
   if(!salvo){
-    try { await db.collection('cadastros_pendentes').doc(id).set(dado); salvo = true; } catch(e){}
+    try { await db.collection('cadastros_pendentes').doc(id).set(dado); salvo = true; } catch(e2){ console.error('Erro final:', e2); }
   }
 
   if(salvo){

@@ -581,19 +581,14 @@ window.enviarCadastro = async function(){
   const id   = Date.now().toString(36) + Math.random().toString(36).slice(2,6);
   const dado = { id, nome, whats, ig, aniv, bairro, cidade, como, foto:'', obs:'', origemCadastro:'link-whatsapp', ts: Date.now() };
 
-  // Tenta salvar direto nos clientes e também em coleção pública
+  // Salva direto na coleção raiz /clientes (mesma que a página de gestão lê)
   let salvo = false;
 
-  for(const uid of UIDS_POSSIVEIS){
-    try{
-      await db.collection('usuarios').doc(uid).collection('clientes').doc(id).set(dado);
-      salvo = true;
-      break;
-    } catch(e){ continue; }
-  }
-
-  if(!salvo){
-    try { await db.collection('cadastros_pendentes').doc(id).set(dado); salvo = true; } catch(e2){ console.error('Erro final:', e2); }
+  try{
+    await db.collection('clientes').doc(id).set(dado);
+    salvo = true;
+  } catch(e){
+    console.error('Erro ao salvar em /clientes:', e);
   }
 
   if(salvo){

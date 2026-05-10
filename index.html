@@ -379,7 +379,7 @@ body::before{
     <div class="name-title" style="font-size:clamp(38px,9vw,62px);letter-spacing:6px;">Angela Moraes</div>
     <div class="studio-title">Studio</div>
 
-    <div class="ornament-mid">
+    <div class="ornament-mid" id="header-ornament-mid">
       <div class="orn-mid-line"></div>
       <span class="orn-mid-star">&#10022; &nbsp; &#10022; &nbsp; &#10022;</span>
       <div class="orn-mid-line"></div>
@@ -391,7 +391,7 @@ body::before{
       Ja estou ansiosa para cuidar de voce!
     </p>
 
-    <div class="header-border">
+    <div class="header-border" id="header-border">
       <div class="hb-line"></div>
       <div class="hb-diamond"></div>
       <div class="hb-diamond" style="opacity:.35;"></div>
@@ -597,8 +597,18 @@ window.enviarCadastro = async function(){
 
 function mostrarSucesso(nome){
   document.getElementById('secao-form').style.display = 'none';
-  const desc = document.getElementById('header-desc');
-  if(desc) desc.style.display = 'none';
+  ['header-ornament-mid','header-desc','header-border'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.style.display = 'none';
+  });
+  // Adicionar linha simples de separação
+  const header = document.querySelector('.header');
+  if(header && !document.getElementById('linha-sucesso')){
+    const linha = document.createElement('div');
+    linha.id = 'linha-sucesso';
+    linha.style.cssText = 'height:1px;background:linear-gradient(90deg,transparent,rgba(168,132,42,0.4),transparent);margin:16px 0 0;';
+    header.appendChild(linha);
+  }
   const suc = document.getElementById('tela-sucesso');
   suc.classList.add('ativo');
   const primeiro = nome.split(' ')[0];

@@ -385,7 +385,7 @@ body::before{
       <div class="orn-mid-line"></div>
     </div>
 
-    <p class="header-desc">
+    <p class="header-desc" id="header-desc">
       Obrigada pelo seu cadastro e por fazer parte<br>
       da familia Angela Moraes.<br>
       Ja estou ansiosa para cuidar de voce!
@@ -479,9 +479,6 @@ body::before{
     <div class="sucesso-orn"><span>&#10022; &nbsp; &#10022;</span></div>
     <div class="sucesso-title" id="sucesso-title">Obrigada!</div>
     <div class="sucesso-studio">Cadastro recebido com sucesso</div>
-    <p class="sucesso-msg" id="sucesso-msg">
-      Obrigada pelo seu cadastro e por fazer parte da familia Angela Moraes. Ja estou ansiosa para cuidar de voce!
-    </p>
     <div class="sucesso-icon-wrap">
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
         <circle cx="18" cy="18" r="16" stroke="#A8842A" stroke-width="1.5"/>
@@ -498,7 +495,7 @@ body::before{
   </div>
 
   <!-- FRASE -->
-  <div class="frase-wrap reveal">
+  <div class="frase-wrap reveal" id="secao-frase">
     <div class="frase-divider">
       <div class="frase-div-line"></div>
       <span class="frase-div-icon">&#10022;</span>
@@ -510,7 +507,7 @@ body::before{
   </div>
 
   <!-- SOCIAL -->
-  <div class="social-wrap reveal">
+  <div class="social-wrap reveal" id="secao-social">
     <a href="https://www.instagram.com/angelamoraesstudio?igsh=MXg0MzJ0aTZtMTZkbw==" target="_blank" class="social-btn" title="Instagram">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -526,7 +523,7 @@ body::before{
   </div>
 
   <!-- FOOTER -->
-  <div class="footer reveal">
+  <div class="footer reveal" id="secao-footer">
     <div class="footer-text">&copy; criado por Angela Moraes &mdash; Todos os direitos reservados</div>
   </div>
 
@@ -602,6 +599,8 @@ window.enviarCadastro = async function(){
 
 function mostrarSucesso(nome){
   document.getElementById('secao-form').style.display = 'none';
+  const desc = document.getElementById('header-desc');
+  if(desc) desc.style.display = 'none';
   const suc = document.getElementById('tela-sucesso');
   suc.classList.add('ativo');
   const primeiro = nome.split(' ')[0];

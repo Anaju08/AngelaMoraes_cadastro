@@ -177,7 +177,7 @@ body::before{
 @keyframes ldot{0%,80%,100%{opacity:.2;transform:scale(.8);}40%{opacity:1;transform:scale(1);}}
 
 /* SUCESSO */
-#tela-sucesso{display:none;text-align:center;padding:60px 10px 20px;}
+#tela-sucesso{display:none;text-align:center;padding:30px 10px 20px;}
 #tela-sucesso.ativo{display:block;}
 .sucesso-orn{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:30px;}
 .sucesso-orn::before,.sucesso-orn::after{content:'';width:40px;height:1px;}
@@ -188,7 +188,7 @@ body::before{
   width:90px;height:90px;border-radius:50%;
   border:2px solid var(--ouro);
   display:flex;align-items:center;justify-content:center;
-  margin:0 auto 28px;
+  margin:0 auto 20px;
   box-shadow:0 0 24px rgba(168,132,42,.25),0 0 60px rgba(168,132,42,.08);
   animation:logoFloat 3s ease-in-out infinite;
 }
@@ -476,7 +476,6 @@ body::before{
 
   <!-- SUCESSO -->
   <div id="tela-sucesso">
-    <div class="sucesso-orn"><span>&#10022; &nbsp; &#10022;</span></div>
     <div class="sucesso-title" id="sucesso-title">Obrigada!</div>
     <div class="sucesso-studio">Cadastro recebido com sucesso</div>
     <div class="sucesso-icon-wrap">
@@ -485,13 +484,12 @@ body::before{
         <path d="M10 19l5.5 5.5L26 13" stroke="#A8842A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
-    <div style="display:flex;justify-content:center;">
+    <div style="display:flex;justify-content:center;margin-bottom:0;">
       <a href="https://g.page/r/CXLA_NjwG8WzEAE/review" target="_blank" class="btn-google">
         <span class="btn-google-main">Aproveite para me avaliar no Google</span>
         <span class="btn-google-sub">So leva um minutinho</span>
       </a>
     </div>
-    <div class="sucesso-orn-btm"><span>&#10022; &nbsp; &#10022; &nbsp; &#10022;</span></div>
   </div>
 
   <!-- FRASE -->
